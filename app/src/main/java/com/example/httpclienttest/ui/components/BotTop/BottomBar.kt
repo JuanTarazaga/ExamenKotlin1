@@ -1,4 +1,4 @@
-package com.example.httpclienttest.ui.components.FakeStore
+package com.example.httpclienttest.ui.components.BotTop
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -41,24 +41,6 @@ fun BottomBar(navController: NavController) {
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceAround
         ) {
-            Box(
-                modifier = Modifier
-                    .size(50.dp)
-                    .clip(CircleShape)
-                    .background(Color.White),
-                contentAlignment = Alignment.Center
-            ) {
-                IconButton(
-                    onClick = { navController.navigate(Destinations.TUS_PRODUCTOS_URL) },
-                    modifier = Modifier.size(50.dp),
-                ) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.lista1),
-                        contentDescription = "productos",
-                        modifier = Modifier.size(35.dp)
-                    )
-                }
-            }
             Box(
                 modifier = Modifier
                     .size(50.dp)

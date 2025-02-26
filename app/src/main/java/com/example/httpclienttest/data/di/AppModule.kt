@@ -1,7 +1,6 @@
 package com.example.httpclienttest.data.di
 
 import com.example.httpclienttest.data.repositories.AuthRepository
-import com.example.httpclienttest.data.repositories.ProductReposoitory
 import com.example.httpclienttest.data.repositories.UserRepository
 import dagger.Module
 import dagger.Provides
@@ -12,12 +11,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
-
-    @Provides
-    @Singleton
-    fun provideProductRepository(): ProductReposoitory {
-        return ProductReposoitory()
-    }
 
     @Provides
     @Singleton

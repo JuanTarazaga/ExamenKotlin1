@@ -3,13 +3,11 @@ package com.example.httpclienttest
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.ui.Modifier
-import androidx.compose.material.icons.Icons
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -17,17 +15,11 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavGraph
 import com.example.httpclienttest.ui.components.navigation.NavGraph
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.httpclienttest.ui.components.FakeStore.BottomBar
 import com.example.httpclienttest.ui.components.navigation.Destinations
 import com.example.httpclienttest.ui.components.navigation.getBottomBarForRoute
-import com.example.httpclienttest.ui.components.navigation.getTopBarForRoute
-import com.example.httpclienttest.ui.screens.product.ProductListScreen
-import com.example.httpclienttest.ui.screens.product.ProductListViewModel
-import com.example.httpclienttest.ui.screens.user.UserListScreen
 import com.example.httpclienttest.ui.screens.user.UserListViewModel
 import com.example.httpclienttest.ui.theme.HttpClientTestTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -59,9 +51,7 @@ fun App1(){
 
     // Lista de destinos donde el FAB debe desaparecer
     val hideFABDestinations = listOf(
-        Destinations.TUS_PRODUCTOS_URL,
-        Destinations.TUS_USERS_URL,
-        Destinations.TU_VISTAPRODUCTOS_URL
+        Destinations.TUS_USERS_URL
     )
 
     LaunchedEffect(currentRoute) {
@@ -69,10 +59,6 @@ fun App1(){
     }
 
     Scaffold (modifier = Modifier.fillMaxSize(),
-        topBar = {
-            val bottomBarContent = getTopBarForRoute(currentRoute, navController)
-            bottomBarContent?.invoke()
-        },
         content = { padding ->
             Box(modifier = Modifier.padding(padding)) {
                 NavGraph(navController)
